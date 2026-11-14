@@ -1,15 +1,4 @@
 <div style="font-size: 18px; line-height: 1.6;">
-
----
-
-## [🛠️제작] 테일즈위버 마우스 커서 하이라이트 프로그램
-
- 
-후원금 요구 및 수령 없음. 개별 연락처 운영 안 함(사칭 주의).  
-기본 배포처 외 타 경로 다운로드 금지.
-
----
-
 <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/%EC%86%8C%EA%B0%9C.png" />
 
 ### 1. 프로그램 소개 및 배경
