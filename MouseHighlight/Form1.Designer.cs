@@ -104,7 +104,6 @@
 			this.textBox_Mouse_Size.Size = new global::System.Drawing.Size(145, 27);
 			this.textBox_Mouse_Size.TabIndex = 0;
 			this.textBox_Mouse_Size.KeyDown += new global::System.Windows.Forms.KeyEventHandler(this.textBox_Mouse_Size_KeyDown);
-			this.textBox_Mouse_Size.KeyPress += new global::System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
 
 			// [사용 속성] 투명도 안내 라벨
 			this.label2.AutoSize = true;
@@ -125,7 +124,6 @@
 			this.textBox_Mouse_Opacity.Size = new global::System.Drawing.Size(145, 27);
 			this.textBox_Mouse_Opacity.TabIndex = 1;
 			this.textBox_Mouse_Opacity.KeyDown += new global::System.Windows.Forms.KeyEventHandler(this.textBox_Mouse_Size_KeyDown);
-			this.textBox_Mouse_Opacity.KeyPress += new global::System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
 
 			// ---------------------------------------------------------------------
 			// [기능 분류: 2. 커서 선택 및 Base64 입력 그룹 (groupBox_CustomCursor)]
