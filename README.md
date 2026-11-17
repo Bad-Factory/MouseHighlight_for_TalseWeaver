@@ -1,5 +1,5 @@
 <div style="font-size: 18px; line-height: 1.6;">
-<img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/%EC%86%8C%EA%B0%9C.png" />
+<img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/Img/%EC%86%8C%EA%B0%9C.png" />
 
 ### 1. 프로그램 소개 및 배경
 
@@ -13,7 +13,7 @@
 MouseHighlight_TalseWeaver 다운로드 링크<br>
 [https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/releases](https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/releases)
 
-<img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/%EB%B9%84%EA%B5%90.png" />
+<img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/Img/%EB%B9%84%EA%B5%90.png" />
 
 ### 2. 주요 기능 및 사용법
 
@@ -23,18 +23,18 @@ MouseHighlight_TalseWeaver 다운로드 링크<br>
   1. 사용하고 싶은 커서 파일(`.cur`) 또는 이미지 파일(`.png` 등) 준비
   2. `.cur` 파일은 [Convertio](https://convertio.co/kr/cur-png/)에서 이미지 파일로 변환 필요
   <br>
-  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/converter.png" />
+  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/Img/converter.png" />
 
   
   3. 마우스 커서 이미지 파일을 [Base64 변환기](https://www.base64.sh/ko/image-to-base64/)에서 Base64 문자열로 변환
   <br>
-  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/base64.png" />
+  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/Img/base64.png" />
 
   
   4. 32,768자를 넘는 경우 고해상도이므로 적당한 크기의 이미지 권장
   5. 초과된 이미지를 꼭 사용하려면 앱 하단 [설정값 저장] 버튼 클릭 후 생성되는 설정 파일을 메모장으로 열어 `[Cursor=]` 뒤의 코드를 교체할 것
   <br>
-  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/32,768%EC%9E%90.png" />
+  <img width="651" height="549" alt="Image" src="https://github.com/Bad-Factory/MouseHighlight_for_TalseWeaver/blob/main/Img/32,768%EC%9E%90.png" />
 
 
 </div>
