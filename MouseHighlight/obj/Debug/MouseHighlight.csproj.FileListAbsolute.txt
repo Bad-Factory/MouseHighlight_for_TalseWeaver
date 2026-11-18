@@ -1,6 +1,6 @@
-C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.csproj.AssemblyReference.cache
-C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\bin\Debug\MouseHighlight.exe
 C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\bin\Debug\MouseHighlight.pdb
+C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.exe
 C:\Users\Administrator\source\repos\Bad-Factory\MouseHighlight_for_TalseWeaver\MouseHighlight\obj\Debug\MouseHighlight.pdb

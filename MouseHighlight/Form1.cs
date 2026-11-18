@@ -314,7 +314,7 @@ namespace MouseHighlight
             try
             {
                 int CursorSize = 0;
-                if (this.textBox_Mouse_Size != null && !int.TryParse(this.textBox_Mouse_Size.Text, out CursorSize))
+                if (this.textBox_Mouse_Size != null && !int.TryParse(this.textBox_Mouse_Size.Text, out CursorSize) || CursorSize == 0)
                 {
                     MessageBox.Show("숫자만 입력 가능합니다.");
                     CursorSize = 40;
@@ -353,7 +353,7 @@ namespace MouseHighlight
                         MessageBox.Show("30 ~ 60 숫자만 입력 가능합니다.");
                         Skill_Range = 60;
                     }
-                    this.textBox_Skill_Range.Text = Skill_Range.ToString();
+                        this.textBox_Skill_Range.Text = Skill_Range.ToString();
                 }
                 this.Skill_Range = Skill_Range;
 
