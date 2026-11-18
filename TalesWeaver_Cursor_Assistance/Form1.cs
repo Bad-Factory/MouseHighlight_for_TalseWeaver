@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 
-namespace MouseHighlight
+namespace TalesWeaver_Cursor_Assistance
 {
     public partial class Form1 : Form
     {
@@ -34,7 +34,7 @@ namespace MouseHighlight
         /// <summary>폼 로드 완료 여부를 나타내는 플래그</summary>
         private bool mIsLoadForm;
         /// <summary>설정 파일(INI)의 전체 경로</summary>
-        private string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MouseHighlight_TalseWeaver_settings.ini");
+        private string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TalesWeaver_Cursor_Assistance_config.ini");
         #endregion
 
         #region [1-4. 커서 프리셋 상수]

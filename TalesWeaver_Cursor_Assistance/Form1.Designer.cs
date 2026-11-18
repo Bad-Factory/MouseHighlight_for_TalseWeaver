@@ -1,4 +1,4 @@
-﻿namespace MouseHighlight
+﻿namespace TalesWeaver_Cursor_Assistance
 {
     // Token: 0x02000010 RID: 16
     public partial class Form1 : global::System.Windows.Forms.Form
@@ -34,7 +34,7 @@
         {
             #region [2-1. 리소스 매니저 및 기본 인스턴스 생성]
             // 리소스 매니저 초기화 (아이콘 파일 및 임베디드 리소스 로드에 사용)
-            global::System.ComponentModel.ComponentResourceManager componentResourceManager = new global::System.ComponentModel.ComponentResourceManager(typeof(global::MouseHighlight.Form1));
+            global::System.ComponentModel.ComponentResourceManager componentResourceManager = new global::System.ComponentModel.ComponentResourceManager(typeof(global::TalesWeaver_Cursor_Assistance.Form1));
 
             // [기능별 분류] 각 그룹박스, 컨트롤 및 트레이 구성 요소 인스턴스 생성
             this.groupBox_MouseHighlight = new global::System.Windows.Forms.GroupBox();
@@ -406,7 +406,7 @@
             // 시스템 트레이 아이콘 설정
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
-            this.notifyIcon1.Text = "Mouse Highlight";
+            this.notifyIcon1.Text = "TalesWeaver Cursor Assistance";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon_DoubleClick);
             #endregion
@@ -432,7 +432,7 @@
             base.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
             base.MaximizeBox = false;
             base.Name = "Form1";
-            this.Text = "Mouse Highlight for TalseWeaver";
+            this.Text = "TalesWeaver Cursor Assistance";
 
             // 폼 주요 이벤트 핸들러 바인딩
             base.FormClosing += new global::System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
