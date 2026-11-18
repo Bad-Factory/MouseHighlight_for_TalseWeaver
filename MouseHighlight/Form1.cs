@@ -145,6 +145,7 @@ namespace MouseHighlight
                 {
                     this.checkBox_SkillEnable_UserRange_UserRange.Checked = this.SkillEnable_UserRange;
                 }
+                if (this.Skill_Range_Opacity != null) this.Skill_Range_Opacity.Value = this.Skill_RangeOpacity;
 
                 // 프리셋 및 커서/스킬 형상 초기화 적용
                 this.UpdatePresetSelection();
@@ -431,7 +432,7 @@ namespace MouseHighlight
             if (this.CursorOpacity == 0) { this.CursorOpacity = byte.MaxValue; }
             if (string.IsNullOrEmpty(this.CursorBase64)) { this.CursorBase64 = PRESET_DEFAULT; }
             if (this.Skill_Range <= 0) { this.Skill_Range = 44; }
-            if (this.Skill_RangeOpacity == 0) { this.Skill_RangeOpacity = byte.MaxValue; }
+            if (this.Skill_RangeOpacity <= 0) { this.Skill_RangeOpacity = byte.MaxValue; }
 
             int calcHeight = this.Skill_Range * 10;
             if (calcHeight < this.Skill_Range_Min) { calcHeight = this.Skill_Range_Min; }
@@ -815,6 +816,28 @@ namespace MouseHighlight
             catch (Exception ex)
             {
                 MessageBox.Show("불시엔 설정 실패: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        /// <summary>
+        /// 투명도 트랙바 스크롤 시 호출되어 스킬 범위의 투명도 값을 실시간으로 조절합니다.
+        /// </summary>
+        private void Skill_RangeOpacity_Scroll(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Windows.Forms.TrackBar trackBar = sender as System.Windows.Forms.TrackBar;
+                if (trackBar != null)
+                {
+                    int opacityValue = trackBar.Value;
+
+                    this.Skill_RangeOpacity = (byte)opacityValue;
+                    this.SetSkillShape();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("투명도 조절 중 오류 발생: " + ex.Message);
             }
         }
 

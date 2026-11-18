@@ -3,18 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MouseHighlight||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|c:\\users\\administrator\\source\\repos\\bad-factory\\mousehighlight_for_talseweaver\\mousehighlight\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|solutionrelative:mousehighlight\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\mousehighlight\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|solutionrelative:mousehighlight\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|c:\\users\\administrator\\source\\repos\\bad-factory\\mousehighlight_for_talseweaver\\mousehighlight\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+      "AbsoluteMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|c:\\users\\administrator\\source\\repos\\bad-factory\\mousehighlight_for_talseweaver\\mousehighlight\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67711B99-E5A2-43E8-AEDB-7B328C084B6F}|MouseHighlight\\MouseHighlight.csproj|solutionrelative:mousehighlight\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\MouseHighlight\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "MouseHighlight\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\MouseHighlight\\Form1.Designer.cs",
               "RelativeToolTip": "MouseHighlight\\Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwDEBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAAHoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-17T12:35:09.328Z",
               "IsPinned": true,
@@ -49,23 +43,10 @@
               "RelativeDocumentMoniker": "MouseHighlight\\Form1.cs",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\MouseHighlight\\Form1.cs",
               "RelativeToolTip": "MouseHighlight\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYDAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAwJMAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-18T04:20:03.995Z",
               "IsPinned": true,
-              "EditorCaption": "",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MouseHighlight",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\MouseHighlight\\MouseHighlight.csproj",
-              "RelativeDocumentMoniker": "MouseHighlight\\MouseHighlight.csproj",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Bad-Factory\\MouseHighlight_for_TalseWeaver\\MouseHighlight\\MouseHighlight.csproj",
-              "RelativeToolTip": "MouseHighlight\\MouseHighlight.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-11-18T04:20:19.891Z",
               "EditorCaption": "",
               "OwnerCaption": "%2"
             },

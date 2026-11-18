@@ -59,6 +59,9 @@
             this.checkBox_Skill_RangeExtensionItem = new global::System.Windows.Forms.CheckBox();
             this.label_Skill_Range = new global::System.Windows.Forms.Label();
             this.textBox_Skill_Range = new global::System.Windows.Forms.TextBox();
+            this.label_Skill_RangeOpacity = new global::System.Windows.Forms.Label();
+            this.Skill_Range_Opacity = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.Skill_Range_Opacity)).BeginInit();
 
             this.button_ChangeCursor = new global::System.Windows.Forms.Button();
             this.button_Apply = new global::System.Windows.Forms.Button();
@@ -108,7 +111,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new global::System.Drawing.Size(150, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Size (default 20)";
+            this.label1.Text = "Cursor Size (default 20)";
             this.label1.UseCompatibleTextRendering = true;
 
             // 투명도 조절 트랙바 설정 (그룹박스 내부 좌표 기준)
@@ -126,7 +129,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new global::System.Drawing.Size(150, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Opacity (0~255)";
+            this.label2.Text = "Cursor Opacity";
             this.label2.UseCompatibleTextRendering = true;
             #endregion
 
@@ -207,10 +210,12 @@
             this.groupBox_Skill.Controls.Add(this.checkBox_Skill_RangeExtensionItem);
             this.groupBox_Skill.Controls.Add(this.label_Skill_Range);
             this.groupBox_Skill.Controls.Add(this.textBox_Skill_Range);
+            this.groupBox_Skill.Controls.Add(this.label_Skill_RangeOpacity);
+            this.groupBox_Skill.Controls.Add(this.Skill_Range_Opacity);
             this.groupBox_Skill.Font = new global::System.Drawing.Font("Segoe UI", 11f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.groupBox_Skill.Location = new global::System.Drawing.Point(15, 337);
             this.groupBox_Skill.Name = "groupBox_Skill";
-            this.groupBox_Skill.Size = new global::System.Drawing.Size(330, 100);
+            this.groupBox_Skill.Size = new global::System.Drawing.Size(330, 155);
             this.groupBox_Skill.TabIndex = 2;
             this.groupBox_Skill.TabStop = false;
             this.groupBox_Skill.Text = "Center Skill Area Overlay";
@@ -266,12 +271,30 @@
             this.textBox_Skill_Range.Size = new global::System.Drawing.Size(150, 27);
             this.textBox_Skill_Range.TabIndex = 3;
             this.textBox_Skill_Range.KeyDown += new global::System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+
+            // 스킬 범위 투명도 조절 트랙바 설정
+            this.Skill_Range_Opacity.Location = new global::System.Drawing.Point(15, 98);
+            this.Skill_Range_Opacity.Name = "Skill_Range_Opacity";
+            this.Skill_Range_Opacity.Size = new global::System.Drawing.Size(130, 45);
+            this.Skill_Range_Opacity.Maximum = 50;
+            this.Skill_Range_Opacity.TickFrequency = 50;
+            this.Skill_Range_Opacity.Scroll += new System.EventHandler(this.Skill_RangeOpacity_Scroll);
+
+            // 스킬 범위 투명도 안내 라벨 설정
+            this.label_Skill_RangeOpacity.AutoSize = true;
+            this.label_Skill_RangeOpacity.Font = new global::System.Drawing.Font("Segoe UI", 10f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
+            this.label_Skill_RangeOpacity.Location = new global::System.Drawing.Point(155, 104);
+            this.label_Skill_RangeOpacity.Name = "label_Skill_RangeOpacity";
+            this.label_Skill_RangeOpacity.Size = new global::System.Drawing.Size(150, 25);
+            this.label_Skill_RangeOpacity.TabIndex = 5;
+            this.label_Skill_RangeOpacity.Text = "Skill Range Opacity";
+            this.label_Skill_RangeOpacity.UseCompatibleTextRendering = true;
             #endregion
 
             #region [2-6. 하단 메인 제어 버튼 UI 배치 및 속성 설정]
             // 커서 변경 버튼 설정
             this.button_ChangeCursor.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
-            this.button_ChangeCursor.Location = new global::System.Drawing.Point(15, 450);
+            this.button_ChangeCursor.Location = new global::System.Drawing.Point(15, 505);
             this.button_ChangeCursor.Name = "button_ChangeCursor";
             this.button_ChangeCursor.Size = new global::System.Drawing.Size(103, 35);
             this.button_ChangeCursor.TabIndex = 3;
@@ -282,7 +305,7 @@
 
             // 설정값 저장 버튼 설정
             this.button_Apply.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
-            this.button_Apply.Location = new global::System.Drawing.Point(123, 450);
+            this.button_Apply.Location = new global::System.Drawing.Point(123, 505);
             this.button_Apply.Name = "button_Apply";
             this.button_Apply.Size = new global::System.Drawing.Size(103, 35);
             this.button_Apply.TabIndex = 4;
@@ -293,7 +316,7 @@
 
             // 트레이로 최소화 버튼 설정
             this.button_MinimizeTray.Font = new global::System.Drawing.Font("Segoe UI", 8.5f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
-            this.button_MinimizeTray.Location = new global::System.Drawing.Point(231, 450);
+            this.button_MinimizeTray.Location = new global::System.Drawing.Point(231, 505);
             this.button_MinimizeTray.Name = "button_MinimizeTray";
             this.button_MinimizeTray.Size = new global::System.Drawing.Size(114, 35);
             this.button_MinimizeTray.TabIndex = 5;
@@ -338,7 +361,7 @@
             base.AutoScaleMode = global::System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            base.ClientSize = new global::System.Drawing.Size(360, 500);
+            base.ClientSize = new global::System.Drawing.Size(360, 555);
 
             // 폼 컨트롤 컬렉션 등록
             base.Controls.Add(this.button_MinimizeTray);
@@ -374,6 +397,7 @@
 
             #region [2-10. 툴팁(ToolTip) 안내 메시지 설정]
             this.toolTip1.SetToolTip(this.Mouse_Opacity, "마우스 커서의 투명도를 슬라이더로 조절합니다 (0~255)");
+            this.toolTip1.SetToolTip(this.Skill_Range_Opacity, "스킬 범위 오버레이의 투명도를 슬라이더로 조절합니다 (0~255)");
             this.toolTip1.SetToolTip(this.comboBox_CursorPreset, "원하는 커서 디자인 프리셋을 선택하거나 직접 입력을 선택하세요");
             this.toolTip1.SetToolTip(this.textBox_CursorBase64, "커서 이미지의 Base64 문자열 코드를 입력합니다");
             this.toolTip1.SetToolTip(this.checkBox_SkillEnable_UserRange_UserRange, "화면에 자기 중심 범위 오버레이를 켜고 끕니다");
@@ -452,6 +476,10 @@
         private global::System.Windows.Forms.CheckBox checkBox_Skill_RangeExtension;
         /// <summary>불시엔 옵션 체크박스</summary>
         private global::System.Windows.Forms.CheckBox checkBox_Skill_RangeExtensionItem;
+        /// <summary>스킬 범위 투명도 조절 트랙바</summary>
+        private System.Windows.Forms.TrackBar Skill_Range_Opacity;
+        /// <summary>스킬 범위 투명도 안내 라벨</summary>
+        private global::System.Windows.Forms.Label label_Skill_RangeOpacity;
         #endregion
 
         #endregion
