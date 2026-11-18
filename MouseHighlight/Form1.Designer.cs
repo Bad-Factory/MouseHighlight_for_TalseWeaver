@@ -444,9 +444,11 @@
             this.toolTip1.SetToolTip(this.comboBox_CursorPreset, "원하는 커서 디자인 프리셋을 선택하거나 직접 입력을 선택하세요");
             this.toolTip1.SetToolTip(this.textBox_CursorBase64, "커서 이미지의 Base64 문자열 코드를 입력합니다");
             this.toolTip1.SetToolTip(this.radioButton_Skill_UserRange, "화면에 자기 중심 범위 오버레이를 표시합니다");
+            this.toolTip1.SetToolTip(this.radioButton_Skill_StraightRange, "화면에 직선 범위 오버레이를 표시합니다");
+            this.toolTip1.SetToolTip(this.radioButton_Skill_CustomRange, "화면에 지정 범위 오버레이를 표시합니다");
             this.toolTip1.SetToolTip(this.checkBox_Skill_RangeExtension, "스킬 범위 연마 효과를 적용하여 범위를 넓힙니다 (+20)");
             this.toolTip1.SetToolTip(this.checkBox_Skill_RangeExtensionItem, "불시엔 효과를 적용하여 범위를 넓힙니다 (+7)");
-            this.toolTip1.SetToolTip(this.textBox_Skill_Range, "기본 44, 예프넨 48");
+            this.toolTip1.SetToolTip(this.textBox_Skill_Range, "자기 중심 범위 : 기본 44 / 예프넨 48\n직선 범위 : 기본 40 ' 30\n지정 범위 : 기본 32 / 예프넨 36");
             this.toolTip1.SetToolTip(this.button_ChangeCursor, "선택/입력한 Base64 코드로 커서를 변경합니다");
             this.toolTip1.SetToolTip(this.button_Apply, "현재 변경된 모든 설정값을 설정 파일에 저장합니다");
             this.toolTip1.SetToolTip(this.button_MinimizeTray, "프로그램을 작업 표시줄에서 숨기고 시스템 트레이로 내립니다");
