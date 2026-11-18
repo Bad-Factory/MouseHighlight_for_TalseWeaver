@@ -1,38 +1,42 @@
 ﻿namespace MouseHighlight
 {
-	// Token: 0x02000010 RID: 16
-	public partial class Form1 : global::System.Windows.Forms.Form
-	{
-		// =========================================================================
-		// [메소드 분류] Dispose : 폼 종료 시 메모리 및 관리 리소스(트레이 아이콘 등) 해제
-		// =========================================================================
-		// Token: 0x0600003A RID: 58 RVA: 0x00002112 File Offset: 0x00000312
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				if (this.notifyIcon1 != null)
-				{
-					this.notifyIcon1.Dispose(); // 시스템 트레이 아이콘 리소스 해제
-				}
-				if (this.components != null)
-				{
-					this.components.Dispose(); // 컴포넌트 컨테이너 리소스 해제
-				}
-			}
-			base.Dispose(disposing);
-		}
+    // Token: 0x02000010 RID: 16
+    public partial class Form1 : global::System.Windows.Forms.Form
+    {
+        #region [1. 폼 소멸 및 리소스 해제 기능 (Dispose)]
+        // =========================================================================
+        // [메소드 분류] Dispose : 폼 종료 시 메모리 및 관리 리소스(트레이 아이콘 등) 해제
+        // =========================================================================
+        // Token: 0x0600003A RID: 58 RVA: 0x00002112 File Offset: 0x00000312
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (this.notifyIcon1 != null)
+                {
+                    this.notifyIcon1.Dispose(); // 시스템 트레이 아이콘 관리 리소스 해제
+                }
+                if (this.components != null)
+                {
+                    this.components.Dispose(); // 컴포넌트 컨테이너 관리 리소스 해제
+                }
+            }
+            base.Dispose(disposing);
+        }
+        #endregion
 
+        #region [2. UI 컴포넌트 초기화 및 배치 기능 (InitializeComponent)]
         // =========================================================================
         // [메소드 분류] InitializeComponent : 폼 UI 컨트롤 생성, 속성 지정 및 이벤트 바인딩
         // =========================================================================
         // Token: 0x0600003B RID: 59 RVA: 0x0000351C File Offset: 0x0000171C
         private void InitializeComponent()
         {
-            // 리소스 매니저 초기화 (아이콘 파일 등 로드에 사용)
+            #region [2-1. 리소스 매니저 및 기본 인스턴스 생성]
+            // 리소스 매니저 초기화 (아이콘 파일 및 임베디드 리소스 로드에 사용)
             global::System.ComponentModel.ComponentResourceManager componentResourceManager = new global::System.ComponentModel.ComponentResourceManager(typeof(global::MouseHighlight.Form1));
 
-            // [기능별 분류] 각 그룹 및 컨트롤 인스턴스 생성
+            // [기능별 분류] 각 그룹박스, 컨트롤 및 트레이 구성 요소 인스턴스 생성
             this.groupBox_MouseHighlight = new global::System.Windows.Forms.GroupBox();
             this.label1 = new global::System.Windows.Forms.Label();
             this.textBox_Mouse_Size = new global::System.Windows.Forms.TextBox();
@@ -63,17 +67,17 @@
             this.contextMenuStrip1 = new global::System.Windows.Forms.ContextMenuStrip();
             this.toolStripMenuItemOpen = new global::System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new global::System.Windows.Forms.ToolStripMenuItem();
+            #endregion
 
-            // 레이아웃 일괄 적용 시작 (SuspendLayout)
+            #region [2-2. 레이아웃 일괄 업데이트 일시 정지 (SuspendLayout)]
             this.groupBox_MouseHighlight.SuspendLayout();
             this.groupBox_CustomCursor.SuspendLayout();
             this.groupBox_Skill.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             base.SuspendLayout();
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 1. 커서 설정 그룹 (groupBox_MouseHighlight)]
-            // ---------------------------------------------------------------------
+            #region [2-3. 커서 설정 그룹 UI 배치 및 속성 설정 (groupBox_MouseHighlight)]
             this.groupBox_MouseHighlight.Controls.Add(this.label1);
             this.groupBox_MouseHighlight.Controls.Add(this.textBox_Mouse_Size);
             this.groupBox_MouseHighlight.Controls.Add(this.label2);
@@ -87,7 +91,7 @@
             this.groupBox_MouseHighlight.Text = "Cursor Settings";
             this.groupBox_MouseHighlight.UseCompatibleTextRendering = true;
 
-            // 마우스 크기 입력 텍스트박스
+            // 마우스 크기 입력 텍스트박스 설정
             this.textBox_Mouse_Size.Font = new global::System.Drawing.Font("Segoe UI", 11f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.textBox_Mouse_Size.ImeMode = global::System.Windows.Forms.ImeMode.Disable;
             this.textBox_Mouse_Size.Location = new global::System.Drawing.Point(15, 32);
@@ -97,7 +101,7 @@
             this.textBox_Mouse_Size.TabIndex = 0;
             this.textBox_Mouse_Size.KeyDown += new global::System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
 
-            // 마우스 크기 안내 라벨
+            // 마우스 크기 안내 라벨 설정
             this.label1.AutoSize = true;
             this.label1.Font = new global::System.Drawing.Font("Segoe UI", 10f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.label1.Location = new global::System.Drawing.Point(155, 34);
@@ -107,7 +111,7 @@
             this.label1.Text = "Size (default 20)";
             this.label1.UseCompatibleTextRendering = true;
 
-            // 투명도 입력 트랙바 (그룹박스 내부 좌표에 맞게 수정)
+            // 투명도 조절 트랙바 설정 (그룹박스 내부 좌표 기준)
             this.Mouse_Opacity.Location = new global::System.Drawing.Point(15, 68);
             this.Mouse_Opacity.Name = "Mouse_Opacity";
             this.Mouse_Opacity.Size = new global::System.Drawing.Size(130, 45);
@@ -115,7 +119,7 @@
             this.Mouse_Opacity.TickFrequency = 50;
             this.Mouse_Opacity.Scroll += new System.EventHandler(this.Mouse_Opacity_Scroll);
 
-            // 투명도 안내 라벨
+            // 투명도 안내 라벨 설정
             this.label2.AutoSize = true;
             this.label2.Font = new global::System.Drawing.Font("Segoe UI", 10f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.label2.Location = new global::System.Drawing.Point(155, 74);
@@ -124,10 +128,9 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Opacity (0~255)";
             this.label2.UseCompatibleTextRendering = true;
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 2. 커서 선택 및 Base64 입력 그룹 (groupBox_CustomCursor)]
-            // ---------------------------------------------------------------------
+            #region [2-4. 커서 프리셋 및 Base64 입력 그룹 UI 배치 및 속성 설정 (groupBox_CustomCursor)]
             this.groupBox_CustomCursor.Controls.Add(this.label_CursorDesc);
             this.groupBox_CustomCursor.Controls.Add(label);
             this.groupBox_CustomCursor.Controls.Add(this.comboBox_CursorPreset);
@@ -142,6 +145,7 @@
             this.groupBox_CustomCursor.Text = "Cursor Selection and Base64";
             this.groupBox_CustomCursor.UseCompatibleTextRendering = true;
 
+            // 커서 설명 라벨 설정
             this.label_CursorDesc.AutoSize = true;
             this.label_CursorDesc.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.label_CursorDesc.Location = new global::System.Drawing.Point(15, 25);
@@ -150,6 +154,7 @@
             this.label_CursorDesc.TabIndex = 0;
             this.label_CursorDesc.Text = "커서 프리셋 선택 또는 Base64 직접 입력:";
 
+            // 커서 프리셋 콤보박스 설정
             this.comboBox_CursorPreset.DropDownStyle = global::System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_CursorPreset.Font = new global::System.Drawing.Font("Segoe UI", 9.5f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.comboBox_CursorPreset.Items.AddRange(new object[]
@@ -165,6 +170,7 @@
             this.comboBox_CursorPreset.TabIndex = 1;
             this.comboBox_CursorPreset.SelectedIndexChanged += new System.EventHandler(this.comboBox_CursorPreset_SelectedIndexChanged);
 
+            // Base64 확인 노트 라벨 설정
             label.AutoSize = true;
             label.Font = new global::System.Drawing.Font("Segoe UI", 8f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
             label.Location = new global::System.Drawing.Point(15, 78);
@@ -173,6 +179,7 @@
             label.TabIndex = 2;
             label.Text = "※ Base64 문자열 ※";
 
+            // Base64 변환 링크 라벨 설정
             this.linkLabel_CursorUrl.AutoSize = true;
             this.linkLabel_CursorUrl.Font = new global::System.Drawing.Font("Segoe UI", 8.25f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.linkLabel_CursorUrl.Location = new global::System.Drawing.Point(15, 96);
@@ -183,6 +190,7 @@
             this.linkLabel_CursorUrl.Text = "https://www.base64.sh/ko/image-to-base64/";
             this.linkLabel_CursorUrl.LinkClicked += new global::System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_CursorUrl_LinkClicked);
 
+            // Base64 입력 텍스트박스 설정
             this.textBox_CursorBase64.Font = new global::System.Drawing.Font("Segoe UI", 8.5f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.textBox_CursorBase64.Location = new global::System.Drawing.Point(15, 118);
             this.textBox_CursorBase64.Multiline = true;
@@ -191,10 +199,9 @@
             this.textBox_CursorBase64.Name = "textBox_CursorBase64";
             this.textBox_CursorBase64.Size = new global::System.Drawing.Size(300, 55);
             this.textBox_CursorBase64.TabIndex = 4;
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 3. 센터 스킬 영역 오버레이 그룹 (groupBox_Skill)]
-            // ---------------------------------------------------------------------
+            #region [2-5. 센터 스킬 영역 오버레이 그룹 UI 배치 및 속성 설정 (groupBox_Skill)]
             this.groupBox_Skill.Controls.Add(this.checkBox_SkillEnable_UserRange_UserRange);
             this.groupBox_Skill.Controls.Add(this.checkBox_Skill_RangeExtension);
             this.groupBox_Skill.Controls.Add(this.checkBox_Skill_RangeExtensionItem);
@@ -209,7 +216,7 @@
             this.groupBox_Skill.Text = "Center Skill Area Overlay";
             this.groupBox_Skill.UseCompatibleTextRendering = true;
 
-            // 체크박스 3개가 겹치지 않게 가로 좌표와 너비를 균등 분할 (330px 내에 안착)
+            // 자기 중심 범위 체크박스 설정
             this.checkBox_SkillEnable_UserRange_UserRange.AutoSize = true;
             this.checkBox_SkillEnable_UserRange_UserRange.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.checkBox_SkillEnable_UserRange_UserRange.Location = new global::System.Drawing.Point(12, 28);
@@ -220,6 +227,7 @@
             this.checkBox_SkillEnable_UserRange_UserRange.UseVisualStyleBackColor = true;
             this.checkBox_SkillEnable_UserRange_UserRange.CheckedChanged += new System.EventHandler(this.checkBox_SkillEnable_UserRange_UserRange_CheckedChanged);
 
+            // 범위 연마 체크박스 설정
             this.checkBox_Skill_RangeExtension.AutoSize = true;
             this.checkBox_Skill_RangeExtension.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.checkBox_Skill_RangeExtension.Location = new global::System.Drawing.Point(120, 28);
@@ -230,6 +238,7 @@
             this.checkBox_Skill_RangeExtension.UseVisualStyleBackColor = true;
             this.checkBox_Skill_RangeExtension.CheckedChanged += new System.EventHandler(this.checkBox_Skill_RangeExtension_CheckedChanged);
 
+            // 불시엔 체크박스 설정
             this.checkBox_Skill_RangeExtensionItem.AutoSize = true;
             this.checkBox_Skill_RangeExtensionItem.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.checkBox_Skill_RangeExtensionItem.Location = new global::System.Drawing.Point(208, 28);
@@ -240,6 +249,7 @@
             this.checkBox_Skill_RangeExtensionItem.UseVisualStyleBackColor = true;
             this.checkBox_Skill_RangeExtensionItem.CheckedChanged += new System.EventHandler(this.checkBox_Skill_RangeExtensionItem_CheckedChanged);
 
+            // 스킬 범위값 안내 라벨 설정
             this.label_Skill_Range.AutoSize = true;
             this.label_Skill_Range.Font = new global::System.Drawing.Font("Segoe UI", 9.5f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.label_Skill_Range.Location = new global::System.Drawing.Point(15, 62);
@@ -247,6 +257,7 @@
             this.label_Skill_Range.Size = new global::System.Drawing.Size(140, 20);
             this.label_Skill_Range.Text = "스킬 범위값 (예: 1~50)";
 
+            // 스킬 범위값 입력 텍스트박스 설정
             this.textBox_Skill_Range.Font = new global::System.Drawing.Font("Segoe UI", 11f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
             this.textBox_Skill_Range.ImeMode = global::System.Windows.Forms.ImeMode.Disable;
             this.textBox_Skill_Range.Location = new global::System.Drawing.Point(165, 57);
@@ -255,10 +266,10 @@
             this.textBox_Skill_Range.Size = new global::System.Drawing.Size(150, 27);
             this.textBox_Skill_Range.TabIndex = 3;
             this.textBox_Skill_Range.KeyDown += new global::System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 4. 하단 메인 제어 버튼들]
-            // ---------------------------------------------------------------------
+            #region [2-6. 하단 메인 제어 버튼 UI 배치 및 속성 설정]
+            // 커서 변경 버튼 설정
             this.button_ChangeCursor.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
             this.button_ChangeCursor.Location = new global::System.Drawing.Point(15, 450);
             this.button_ChangeCursor.Name = "button_ChangeCursor";
@@ -269,6 +280,7 @@
             this.button_ChangeCursor.UseVisualStyleBackColor = true;
             this.button_ChangeCursor.Click += new System.EventHandler(this.button_ChangeCursor_Click);
 
+            // 설정값 저장 버튼 설정
             this.button_Apply.Font = new global::System.Drawing.Font("Segoe UI", 9f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
             this.button_Apply.Location = new global::System.Drawing.Point(123, 450);
             this.button_Apply.Name = "button_Apply";
@@ -277,8 +289,9 @@
             this.button_Apply.Text = "설정값 저장";
             this.button_Apply.UseCompatibleTextRendering = true;
             this.button_Apply.UseVisualStyleBackColor = true;
-            this.button_Apply.Click += new global::System.EventHandler(this.button_Apply_Click);
+            this.button_Apply.Click += new System.EventHandler(this.button_Apply_Click);
 
+            // 트레이로 최소화 버튼 설정
             this.button_MinimizeTray.Font = new global::System.Drawing.Font("Segoe UI", 8.5f, global::System.Drawing.FontStyle.Bold, global::System.Drawing.GraphicsUnit.Point, 0);
             this.button_MinimizeTray.Location = new global::System.Drawing.Point(231, 450);
             this.button_MinimizeTray.Name = "button_MinimizeTray";
@@ -287,11 +300,11 @@
             this.button_MinimizeTray.Text = "트레이로 최소화";
             this.button_MinimizeTray.UseCompatibleTextRendering = true;
             this.button_MinimizeTray.UseVisualStyleBackColor = true;
-            this.button_MinimizeTray.Click += new global::System.EventHandler(this.button_MinimizeTray_Click);
+            this.button_MinimizeTray.Click += new System.EventHandler(this.button_MinimizeTray_Click);
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 5. 시스템 트레이 아이콘 및 우클릭 컨텍스트 메뉴]
-            // ---------------------------------------------------------------------
+            #region [2-7. 시스템 트레이 아이콘 및 우클릭 컨텍스트 메뉴 설정]
+            // 컨텍스트 메뉴 설정
             this.contextMenuStrip1.Items.AddRange(new global::System.Windows.Forms.ToolStripItem[]
             {
                 this.toolStripMenuItemOpen,
@@ -300,32 +313,34 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new global::System.Drawing.Size(100, 48);
 
+            // [열기] 메뉴 아이템 설정
             this.toolStripMenuItemOpen.Name = "toolStripMenuItemOpen";
             this.toolStripMenuItemOpen.Size = new global::System.Drawing.Size(99, 22);
             this.toolStripMenuItemOpen.Text = "열기";
-            this.toolStripMenuItemOpen.Click += new global::System.EventHandler(this.TrayMenu_Open_Click);
+            this.toolStripMenuItemOpen.Click += new System.EventHandler(this.TrayMenu_Open_Click);
 
+            // [종료] 메뉴 아이템 설정
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
             this.toolStripMenuItemExit.Size = new global::System.Drawing.Size(99, 22);
             this.toolStripMenuItemExit.Text = "종료";
-            this.toolStripMenuItemExit.Click += new global::System.EventHandler(this.TrayMenu_Exit_Click);
+            this.toolStripMenuItemExit.Click += new System.EventHandler(this.TrayMenu_Exit_Click);
 
+            // 시스템 트레이 아이콘 설정
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
             this.notifyIcon1.Text = "Mouse Highlight";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.DoubleClick += new global::System.EventHandler(this.NotifyIcon_DoubleClick);
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon_DoubleClick);
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 6. 메인 폼(Form1) 창 전체 속성 및 이벤트 설정]
-            // ---------------------------------------------------------------------
+            #region [2-8. 메인 폼(Form1) 창 전체 속성 및 컨트롤 등록]
             base.AutoScaleDimensions = new global::System.Drawing.SizeF(96f, 96f);
             base.AutoScaleMode = global::System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
             base.ClientSize = new global::System.Drawing.Size(360, 500);
 
-            // 컨트롤 컬렉션 추가 (중복 추가된 Mouse_Opacity는 base.Controls에서 제거하여 그룹박스 내부에 온전히 속하도록 정리)
+            // 폼 컨트롤 컬렉션 등록
             base.Controls.Add(this.button_MinimizeTray);
             base.Controls.Add(this.button_Apply);
             base.Controls.Add(this.button_ChangeCursor);
@@ -340,11 +355,13 @@
             base.Name = "Form1";
             this.Text = "Mouse Highlight for TalseWeaver";
 
+            // 폼 주요 이벤트 핸들러 바인딩
             base.FormClosing += new global::System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            base.Load += new global::System.EventHandler(this.Form1_Load);
-            base.Shown += new global::System.EventHandler(this.Form1_Shown);
+            base.Load += new System.EventHandler(this.Form1_Load);
+            base.Shown += new System.EventHandler(this.Form1_Shown);
+            #endregion
 
-            // 레이아웃 일괄 적용 종료 (ResumeLayout)
+            #region [2-9. 레이아웃 일괄 업데이트 재개 (ResumeLayout)]
             this.groupBox_MouseHighlight.ResumeLayout(false);
             this.groupBox_MouseHighlight.PerformLayout();
             this.groupBox_CustomCursor.ResumeLayout(false);
@@ -353,62 +370,90 @@
             this.groupBox_Skill.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             base.ResumeLayout(false);
+            #endregion
 
-            // ---------------------------------------------------------------------
-            // [기능 분류: 7. 툴팁(ToolTip) 안내 메시지 설정]
-            // ---------------------------------------------------------------------
+            #region [2-10. 툴팁(ToolTip) 안내 메시지 설정]
             this.toolTip1.SetToolTip(this.Mouse_Opacity, "마우스 커서의 투명도를 슬라이더로 조절합니다 (0~255)");
             this.toolTip1.SetToolTip(this.comboBox_CursorPreset, "원하는 커서 디자인 프리셋을 선택하거나 직접 입력을 선택하세요");
             this.toolTip1.SetToolTip(this.textBox_CursorBase64, "커서 이미지의 Base64 문자열 코드를 입력합니다");
-            this.toolTip1.SetToolTip(this.checkBox_SkillEnable_UserRange_UserRange, "화면에 자기 중심 범위 오버레이를 켭니다");
+            this.toolTip1.SetToolTip(this.checkBox_SkillEnable_UserRange_UserRange, "화면에 자기 중심 범위 오버레이를 켜고 끕니다");
             this.toolTip1.SetToolTip(this.checkBox_Skill_RangeExtension, "스킬 범위 연마 효과를 적용하여 범위를 넓힙니다 (+20)");
             this.toolTip1.SetToolTip(this.checkBox_Skill_RangeExtensionItem, "불시엔 효과를 적용하여 범위를 넓힙니다 (+7)");
             this.toolTip1.SetToolTip(this.textBox_Skill_Range, "기본 44, 예프넨 48");
             this.toolTip1.SetToolTip(this.button_ChangeCursor, "선택/입력한 Base64 코드로 커서를 변경합니다");
             this.toolTip1.SetToolTip(this.button_Apply, "현재 변경된 모든 설정값을 설정 파일에 저장합니다");
             this.toolTip1.SetToolTip(this.button_MinimizeTray, "프로그램을 작업 표시줄에서 숨기고 시스템 트레이로 내립니다");
+            #endregion
         }
+        #endregion
 
-        // =========================================================================
-        // [필드 분류] 폼 내에서 사용되는 컨트롤 및 컴포넌트 변수 선언부
-        // =========================================================================
+        #region [3. 필드 및 컨트롤 변수 선언부 (Fields Declaration)]
 
-        // 컴포넌트 관리 컨테이너
+        #region [3-1. 시스템 컴포넌트 및 툴팁 관리 필드]
+        /// <summary>컨트롤 및 자원 관리를 위한 컴포넌트 컨테이너</summary>
         private global::System.ComponentModel.IContainer components;
-
-        // [기능별 분류: 툴팁 컴포넌트]
+        /// <summary>각 UI 컨트롤에 대한 도움말 툴팁 컴포넌트</summary>
         private global::System.Windows.Forms.ToolTip toolTip1;
+        #endregion
 
-        // [기능별 분류: 커서 크기 및 투명도 설정 관련 필드]
+        #region [3-2. 커서 크기 및 투명도 설정 그룹 필드]
+        /// <summary>커서 설정 그룹박스</summary>
         private global::System.Windows.Forms.GroupBox groupBox_MouseHighlight;
-		private global::System.Windows.Forms.Label label2;
-		private global::System.Windows.Forms.Label label1;
+        /// <summary>투명도 입력 트랙바 라벨</summary>
+        private global::System.Windows.Forms.Label label2;
+        /// <summary>마우스 크기 입력 텍스트박스 라벨</summary>
+        private global::System.Windows.Forms.Label label1;
+        /// <summary>커서 투명도 조절 트랙바</summary>
         private global::System.Windows.Forms.TrackBar Mouse_Opacity;
+        /// <summary>마우스 커서 크기 입력 텍스트박스</summary>
         private global::System.Windows.Forms.TextBox textBox_Mouse_Size;
+        #endregion
 
-		// [기능별 분류: 하단 제어 버튼 및 시스템 트레이/메뉴 관련 필드]
-		private global::System.Windows.Forms.Button button_Apply;
-		private global::System.Windows.Forms.Button button_MinimizeTray;
-		private global::System.Windows.Forms.NotifyIcon notifyIcon1;
-		private global::System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private global::System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpen;
-		private global::System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        #region [3-3. 하단 제어 버튼 및 시스템 트레이/메뉴 관련 필드]
+        /// <summary>설정값 저장 버튼</summary>
+        private global::System.Windows.Forms.Button button_Apply;
+        /// <summary>트레이로 최소화 버튼</summary>
+        private global::System.Windows.Forms.Button button_MinimizeTray;
+        /// <summary>시스템 트레이 아이콘 컨트롤</summary>
+        private global::System.Windows.Forms.NotifyIcon notifyIcon1;
+        /// <summary>트레이 아이콘 우클릭 컨텍스트 메뉴 스트립</summary>
+        private global::System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        /// <summary>트레이 메뉴 [열기] 항목</summary>
+        private global::System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpen;
+        /// <summary>트레이 메뉴 [종료] 항목</summary>
+        private global::System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        #endregion
 
-		// [기능별 분류: 커서 프리셋 및 Base64 입력 관련 필드]
-		private global::System.Windows.Forms.GroupBox groupBox_CustomCursor;
-		private global::System.Windows.Forms.TextBox textBox_CursorBase64;
-		private global::System.Windows.Forms.Button button_ChangeCursor;
-		private global::System.Windows.Forms.Label label_CursorDesc;
-		private global::System.Windows.Forms.LinkLabel linkLabel_CursorUrl;
-		private global::System.Windows.Forms.ComboBox comboBox_CursorPreset;
+        #region [3-4. 커서 프리셋 및 Base64 입력 관련 필드]
+        /// <summary>커서 프리셋 및 Base64 설정 그룹박스</summary>
+        private global::System.Windows.Forms.GroupBox groupBox_CustomCursor;
+        /// <summary>커서 Base64 코드 입력 텍스트박스</summary>
+        private global::System.Windows.Forms.TextBox textBox_CursorBase64;
+        /// <summary>커서 변경 적용 버튼</summary>
+        private global::System.Windows.Forms.Button button_ChangeCursor;
+        /// <summary>커서 설명 안내 라벨</summary>
+        private global::System.Windows.Forms.Label label_CursorDesc;
+        /// <summary>Base64 변환 링크 라벨</summary>
+        private global::System.Windows.Forms.LinkLabel linkLabel_CursorUrl;
+        /// <summary>커서 프리셋 선택 콤보박스</summary>
+        private global::System.Windows.Forms.ComboBox comboBox_CursorPreset;
+        #endregion
 
-		// [기능별 분류: 센터 스킬 영역 오버레이 관련 필드]
-		private global::System.Windows.Forms.GroupBox groupBox_Skill;
-		private global::System.Windows.Forms.CheckBox checkBox_SkillEnable_UserRange_UserRange;
-		private global::System.Windows.Forms.Label label_Skill_Range;
-		private global::System.Windows.Forms.TextBox textBox_Skill_Range;
-		private global::System.Windows.Forms.Button button_SkillApply;
-		private global::System.Windows.Forms.CheckBox checkBox_Skill_RangeExtension;
+        #region [3-5. 센터 스킬 영역 오버레이 관련 필드]
+        /// <summary>센터 스킬 영역 오버레이 설정 그룹박스</summary>
+        private global::System.Windows.Forms.GroupBox groupBox_Skill;
+        /// <summary>자기 중심 범위 활성화 체크박스</summary>
+        private global::System.Windows.Forms.CheckBox checkBox_SkillEnable_UserRange_UserRange;
+        /// <summary>스킬 범위값 안내 라벨</summary>
+        private global::System.Windows.Forms.Label label_Skill_Range;
+        /// <summary>스킬 범위값 입력 텍스트박스</summary>
+        private global::System.Windows.Forms.TextBox textBox_Skill_Range;
+        /// <summary>범위 연마 옵션 체크박스</summary>
+        private global::System.Windows.Forms.CheckBox checkBox_Skill_RangeExtension;
+        /// <summary>불시엔 옵션 체크박스</summary>
         private global::System.Windows.Forms.CheckBox checkBox_Skill_RangeExtensionItem;
+        #endregion
+
+        #endregion
     }
 }
