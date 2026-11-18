@@ -10,8 +10,7 @@
     <AssemblyName>MouseHighlight</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>MouseHighlight.ico</ApplicationIcon>
+    <ApplicationIcon>TalesWeaver_Cursor_Assistance.ico</ApplicationIcon>
     <StartupObject>MouseHighlight.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,7 +88,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cursor_Yellow.ico" />
+    <Content Include="TalesWeaver_Cursor_Assistance.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
