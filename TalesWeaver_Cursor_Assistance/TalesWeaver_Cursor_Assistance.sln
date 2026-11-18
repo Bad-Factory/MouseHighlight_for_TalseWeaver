@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseHighlight", "MouseHighlight\MouseHighlight.csproj", "{B94F1CA2-F811-4066-876B-07654C732B1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalesWeaver_Cursor_Assistance", "TalesWeaver_Cursor_Assistance\TalesWeaver_Cursor_Assistance.csproj", "{B94F1CA2-F811-4066-876B-07654C732B1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

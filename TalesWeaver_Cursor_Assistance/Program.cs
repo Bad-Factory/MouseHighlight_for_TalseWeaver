@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MouseHighlight
+namespace TalesWeaver_Cursor_Assistance
 {
 	// Token: 0x02000011 RID: 17
 	internal static class Program
@@ -25,7 +25,7 @@ namespace MouseHighlight
 			}
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			string name = "MouseHighlight";
+			string name = "TalesWeaver_Cursor_Assistance";
 			bool flag;
 			new Mutex(true, name, out flag);
 			if (!flag)
