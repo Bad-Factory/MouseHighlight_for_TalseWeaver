@@ -58,6 +58,10 @@ namespace MouseHighlight
         #region [1-6. 스킬 범위(Skill Shape) 관련 상태 및 설정 변수]
         /// <summary>자기 중심 범위 오버레이 활성화 여부</summary>
         private bool SkillEnable_UserRange;
+        /// <summary>직선 범위 오버레이 활성화 여부</summary>
+        private bool SkillEnable_StraightRange;
+        /// <summary>지정 범위 오버레이 활성화 여부</summary>
+        private bool SkillEnable_CustomRange;
         /// <summary>범위 연마 효과 적용 여부</summary>
         private bool Skill_RangeExtension;
         /// <summary>불시엔 아이템 효과 적용 여부</summary>
@@ -70,8 +74,6 @@ namespace MouseHighlight
         private int Skill_RangeHeight;
         /// <summary>스킬 범위 오버레이 투명도</summary>
         private byte Skill_RangeOpacity;
-        /// <summary>스킬 범위 오버레이 테두리/채우기 색상</summary>
-        private Color Skill_RangeColor;
         /// <summary>스킬 범위 최소 크기 제한</summary>
         private int Skill_Range_Min;
         /// <summary>스킬 범위 최대 크기 제한</summary>
@@ -98,13 +100,14 @@ namespace MouseHighlight
 
             // 기본 스킬 범위 속성 초기화
             this.SkillEnable_UserRange = false;
+            this.SkillEnable_StraightRange = false;
+            this.SkillEnable_CustomRange = false;
             this.Skill_Range = 44;
             this.Skill_RangeHeight = this.Skill_Range * 10;
             this.Skill_RangeWidth = this.Skill_RangeHeight * 2;
             this.Skill_RangeOpacity = 30;
             this.Skill_Range_Min = 300;
             this.Skill_Range_Max = 1280;
-            this.Skill_RangeColor = Color.Cyan;
 
             // 디자이너 컴포넌트 초기화
             this.InitializeComponent();
@@ -141,10 +144,24 @@ namespace MouseHighlight
                 {
                     this.checkBox_Skill_RangeExtensionItem.Checked = this.Skill_RangeExtensionItem;
                 }
-                if (this.checkBox_SkillEnable_UserRange_UserRange != null)
+
+                if (this.radioButton_Skill_UserRange != null)
                 {
-                    this.checkBox_SkillEnable_UserRange_UserRange.Checked = this.SkillEnable_UserRange;
+                    this.radioButton_Skill_UserRange.Checked = this.SkillEnable_UserRange;
                 }
+                if (this.radioButton_Skill_StraightRange != null)
+                {
+                    this.radioButton_Skill_StraightRange.Checked = this.SkillEnable_StraightRange;
+                }
+                if (this.radioButton_Skill_CustomRange != null)
+                {
+                    this.radioButton_Skill_CustomRange.Checked = this.SkillEnable_CustomRange;
+                }
+                if (this.radioButton_Skill_None != null && !this.SkillEnable_UserRange && !this.SkillEnable_StraightRange && !this.SkillEnable_CustomRange)
+                {
+                    this.radioButton_Skill_None.Checked = true;
+                }
+
                 if (this.Skill_Range_Opacity != null) this.Skill_Range_Opacity.Value = this.Skill_RangeOpacity;
 
                 // 프리셋 및 커서/스킬 형상 초기화 적용
@@ -298,7 +315,8 @@ namespace MouseHighlight
                 this.SetCursor();
 
                 int Skill_Range = 0;
-                if (this.SkillEnable_UserRange != false && this.textBox_Skill_Range != null && !int.TryParse(this.textBox_Skill_Range.Text, out Skill_Range))
+                bool isAnySkillActive = this.SkillEnable_UserRange || this.SkillEnable_StraightRange || this.SkillEnable_CustomRange;
+                if (isAnySkillActive && this.textBox_Skill_Range != null && !int.TryParse(this.textBox_Skill_Range.Text, out Skill_Range))
                 {
                     MessageBox.Show("숫자만 입력 가능합니다.");
                     Skill_Range = 44;
@@ -312,7 +330,7 @@ namespace MouseHighlight
                 }
                 this.Skill_Range = Skill_Range;
 
-                this.checkBox_SkillEnable_UserRange_UserRange_CheckedChanged(null, null);
+                this.SetSkillShape();
             }
             catch (Exception)
             {
@@ -400,6 +418,14 @@ namespace MouseHighlight
                                 {
                                     this.SkillEnable_UserRange = flag;
                                 }
+                                else if (a == "SkillEnable_StraightRange" && bool.TryParse(text2, out flag))
+                                {
+                                    this.SkillEnable_StraightRange = flag;
+                                }
+                                else if (a == "SkillEnable_CustomRange" && bool.TryParse(text2, out flag))
+                                {
+                                    this.SkillEnable_CustomRange = flag;
+                                }
                                 else if (a == "Skill_RangeExtension" && bool.TryParse(text2, out flag))
                                 {
                                     this.Skill_RangeExtension = flag;
@@ -449,12 +475,14 @@ namespace MouseHighlight
             try
             {
                 string text = string.IsNullOrEmpty(this.CursorBase64) ? "" : this.CursorBase64.Replace("\r", "").Replace("\n", "").Trim();
-                string contents = string.Format("Size={0}\nOpacity={1}\nCursor={2}\nSkillEnable_UserRange={3}\nSkill_RangeExtension={4}\nSkill_RangeExtensionItem={5}\nSkill_Range={6}\nSkill_RangeOpacity={7}", new object[]
+                string contents = string.Format("Size={0}\nOpacity={1}\nCursor={2}\nSkillEnable_UserRange={3}\nSkillEnable_StraightRange={4}\nSkillEnable_CustomRange={5}\nSkill_RangeExtension={6}\nSkill_RangeExtensionItem={7}\nSkill_Range={8}\nSkill_RangeOpacity={9}", new object[]
                 {
                     this.CursorSize,
                     this.CursorOpacity,
                     text,
                     this.SkillEnable_UserRange,
+                    this.SkillEnable_StraightRange,
+                    this.SkillEnable_CustomRange,
                     this.Skill_RangeExtension,
                     this.Skill_RangeExtensionItem,
                     this.Skill_Range,
@@ -679,7 +707,8 @@ namespace MouseHighlight
         {
             try
             {
-                if (!this.SkillEnable_UserRange)
+                bool isAnyEnabled = this.SkillEnable_UserRange || this.SkillEnable_StraightRange || this.SkillEnable_CustomRange;
+                if (!isAnyEnabled)
                 {
                     if (this.mSkillForm != null)
                     {
@@ -688,6 +717,17 @@ namespace MouseHighlight
                 }
                 else
                 {
+                    // 구분을 위한 모드별 색상 값 지정 (자기 중심: Cyan, 직선 범위: Orange, 지정 범위: Green)
+                    Color activeColor = Color.Cyan;
+                    if (this.SkillEnable_StraightRange)
+                    {
+                        activeColor = Color.Orange;
+                    }
+                    else if (this.SkillEnable_CustomRange)
+                    {
+                        activeColor = Color.Green;
+                    }
+
                     int effectiveRange = this.Skill_Range;
 
                     bool isExtChecked = (this.checkBox_Skill_RangeExtension != null && this.checkBox_Skill_RangeExtension.Checked);
@@ -728,11 +768,11 @@ namespace MouseHighlight
                             pointF3,
                             pointF4
                         };
-                        using (SolidBrush solidBrush = new SolidBrush(Color.FromArgb(100, this.Skill_RangeColor)))
+                        using (SolidBrush solidBrush = new SolidBrush(Color.FromArgb(100, activeColor)))
                         {
                             graphics.FillPolygon(solidBrush, points);
                         }
-                        using (Pen pen = new Pen(this.Skill_RangeColor, 2f))
+                        using (Pen pen = new Pen(activeColor, 2f))
                         {
                             graphics.DrawPolygon(pen, points);
                         }
@@ -754,15 +794,107 @@ namespace MouseHighlight
         }
 
         /// <summary>
-        /// '자기 중심 범위' 체크박스 상태 변경 시 호출되어 스킬 범위 오버레이를 켜고 끕니다.
+        /// '[사용안함]' 라디오 버튼 상태 변경 시 호출되어 모든 스킬 범위 오버레이를 끕니다.
         /// </summary>
-        private void checkBox_SkillEnable_UserRange_UserRange_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_Skill_None_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
-                if (this.checkBox_SkillEnable_UserRange_UserRange != null)
+                if (this.radioButton_Skill_None != null && this.radioButton_Skill_None.Checked)
                 {
-                    this.SkillEnable_UserRange = this.checkBox_SkillEnable_UserRange_UserRange.Checked;
+                    this.SkillEnable_UserRange = false;
+                    this.SkillEnable_StraightRange = false;
+                    this.SkillEnable_CustomRange = false;
+                    this.SetSkillShape();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("설정 적용 실패: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        /// <summary>
+        /// '[자기 중심 범위]' 체크박스(라디오버튼) 상태 변경 시 호출되어 스킬 범위 오버레이를 켜고 끕니다.
+        /// </summary>
+        private void radioButton_SkillEnable_UserRange_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.radioButton_Skill_UserRange != null)
+                {
+                    this.SkillEnable_UserRange = this.radioButton_Skill_UserRange.Checked;
+                }
+                if (this.SkillEnable_UserRange)
+                {
+                    this.SkillEnable_StraightRange = false;
+                    this.SkillEnable_CustomRange = false;
+                }
+                int num;
+                if (this.textBox_Skill_Range != null && int.TryParse(this.textBox_Skill_Range.Text, out num))
+                {
+                    int num2 = num * 10;
+                    if (num2 < this.Skill_Range_Min) { num2 = this.Skill_Range_Min; }
+                    if (num2 > this.Skill_Range_Max) { num2 = this.Skill_Range_Max; }
+                    this.Skill_RangeHeight = num2;
+                    this.Skill_RangeWidth = num2 * 2;
+                }
+                this.SetSkillShape();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("설정 적용 실패: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        /// <summary>
+        /// '[직선 범위]' 라디오 버튼 상태 변경 시 호출되어 직선 범위 오버레이를 켜고 끕니다.
+        /// </summary>
+        private void radioButton_Skill_StraightRange_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.radioButton_Skill_StraightRange != null)
+                {
+                    this.SkillEnable_StraightRange = this.radioButton_Skill_StraightRange.Checked;
+                }
+                if (this.SkillEnable_StraightRange)
+                {
+                    this.SkillEnable_UserRange = false;
+                    this.SkillEnable_CustomRange = false;
+                }
+                int num;
+                if (this.textBox_Skill_Range != null && int.TryParse(this.textBox_Skill_Range.Text, out num))
+                {
+                    int num2 = num * 10;
+                    if (num2 < this.Skill_Range_Min) { num2 = this.Skill_Range_Min; }
+                    if (num2 > this.Skill_Range_Max) { num2 = this.Skill_Range_Max; }
+                    this.Skill_RangeHeight = num2;
+                    this.Skill_RangeWidth = num2 * 2;
+                }
+                this.SetSkillShape();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("설정 적용 실패: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        /// <summary>
+        /// '[지정 범위]' 라디오 버튼 상태 변경 시 호출되어 지정 범위 오버레이를 켜고 끕니다.
+        /// </summary>
+        private void radioButton_Skill_CustomRange_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.radioButton_Skill_CustomRange != null)
+                {
+                    this.SkillEnable_CustomRange = this.radioButton_Skill_CustomRange.Checked;
+                }
+                if (this.SkillEnable_CustomRange)
+                {
+                    this.SkillEnable_UserRange = false;
+                    this.SkillEnable_StraightRange = false;
                 }
                 int num;
                 if (this.textBox_Skill_Range != null && int.TryParse(this.textBox_Skill_Range.Text, out num))
