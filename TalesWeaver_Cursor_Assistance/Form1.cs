@@ -725,7 +725,7 @@ namespace TalesWeaver_Cursor_Assistance
             }
             if (this.CursorBase64 == PRESET_YELLOW)
             {
-                this.comboBox_CursorPreset.SelectedItem = "블루 커서 (Blue)";
+                this.comboBox_CursorPreset.SelectedItem = "옐로 커서 (Yellow)";
                 if (this.textBox_CursorBase64 != null) this.textBox_CursorBase64.ReadOnly = true;
                 return;
             }
