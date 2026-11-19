@@ -167,7 +167,7 @@
             this.comboBox_CursorPreset.Items.AddRange(new object[]
             {
                 "기본 커서 (Default)",
-                "블루 커서 (Blue)",
+                "옐로 커서 (Yellow)",
                 "레드 커서 (Red)",
                 "직접 입력 (Custom)"
             });
